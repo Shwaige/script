@@ -1,7 +1,7 @@
-import json
 import base64
 from Crypto.Cipher import PKCS1_v1_5 as Cipher_pksc1_v1_5
 from Crypto.PublicKey import RSA
+
 
 def _encrpt(string, public_key):
     rsakey = RSA.importKey(public_key)  # 读取公钥
@@ -11,6 +11,7 @@ def _encrpt(string, public_key):
     cipher_text_tmp = base64.b64encode(encrypt_text)  # 2.对加密后的字符串base64加密
     return cipher_text_tmp.decode()
 
+
 def gen_body(pwd, public_key=None):
     '''根据账号密码生成请求的body然后调用_encrpt方法加密'''
 
@@ -18,6 +19,7 @@ def gen_body(pwd, public_key=None):
     key = '-----BEGIN PUBLIC KEY-----\n' + public_key + '\n-----END PUBLIC KEY-----'
     encrypt_res = _encrpt(pwd, key)
     return encrypt_res
+
 
 # 定义加密所需的参数
 pwd = 'password123'
