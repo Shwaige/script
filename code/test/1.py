@@ -1,6 +1,14 @@
+# -*- coding: utf-8 -*-
+import sys
+sys.path.append("/opt/metersphere/data/python/py2/lib/python2.7/site-packages/")
+import ctypes
+
+import ctypes
 import base64
 from Crypto.Cipher import PKCS1_v1_5 as Cipher_pksc1_v1_5
 from Crypto.PublicKey import RSA
+
+
 def _encrpt(string, public_key):
     rsakey = RSA.importKey(public_key)  # 读取公钥
     cipher = Cipher_pksc1_v1_5.new(rsakey)
@@ -28,3 +36,5 @@ encrypted_str = gen_body(pwd, public_key)
 
 # 打印加密后的字符串
 print(encrypted_str)
+
+

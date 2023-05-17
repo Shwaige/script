@@ -1,8 +1,8 @@
 import uuid
 import re
 
-b = 1000
-d = [0,1]
+b = 10000
+d = [1]
 f = 0
 for i in range(b):
     a = str(uuid.uuid4())
