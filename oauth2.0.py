@@ -4,7 +4,7 @@ import uuid
 import redis
 import json
 app = Flask(__name__)
-pool = redis.ConnectionPool(host='110.42.144.188',password='wsj123456')
+pool = redis.ConnectionPool(host='60.204.173.77',password='Shwaige_0221%')
 r =redis.Redis(connection_pool=pool)
 
 
@@ -16,7 +16,7 @@ def a():
     redirect_url  = params.get("redirect_url")
     code = "wsj123456"
     state = params.get("state")
-    url =   url = str(redirect_url) + "?state=" + str(state) + "&" + str(response_type) + "=" + str(uuid.uuid1()).replace("-","")
+    url = str(redirect_url) + "?state=" + str(state) + "&" + str(response_type) + "=" + str(uuid.uuid1()).replace("-","")
     if client_id == "123456":
         return  redirect(url)
 @app.route('/oauth2/refreshtoken',methods=['get'])
