@@ -4,8 +4,8 @@ import uuid
 import redis
 import json
 app = Flask(__name__)
-pool = redis.ConnectionPool(host='60.204.173.77',password='Shwaige_0221%')
-r =redis.Redis(connection_pool=pool)
+pool = redis.ConnectionPool(host='60.204.173.77')
+r = redis.Redis(connection_pool=pool)
 
 
 @app.route('/oauth2/authorize',methods=['get'])
