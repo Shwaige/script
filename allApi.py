@@ -1,4 +1,3 @@
-import json
 import time
 import requests
 from concurrent.futures import ThreadPoolExecutor
@@ -9,6 +8,9 @@ import uuid
 import redis
 import json
 
+executor = ThreadPoolExecutor()
+# 把获取到的数据转为JSON格式。
+result = {}
 
 
 app = Flask(__name__)
@@ -43,21 +45,7 @@ def b():
      if  client_secret =="654321" and  client_id  == "123456":
          return  h
      return "client_secret is error or client_id is error"
-# @app.route('/oauth2/accessToken',methods=["get"])
-# def c():
-#     params = request.args
-#     client_id = params.get("client_id")
-#     client_secret = params.get("client_secret")
-#     grant_type = params.get("grant_type")
-#     redirect_uri = params.get("redirect_uri")
-#     refresh_token = params.get("refresh_token")
-#     accessToken_value = str(uuid.uuid1())
-#     print(r.set("access_token", accessToken_value, ex=120))
-#     print(r.get("access_token"))
-#     k = {"access_token":accessToken_value}
-#     if  client_id =="123456" and client_secret =="654321":
-#         return k
-#     return "client_secret is error or client_id is error"
+
 @app.route('/oauth2/result',methods=["post"])
 def d():
     params =request.args
@@ -81,18 +69,7 @@ def d():
     else:
          return {"result":"accesstoken已过期"}
 
-
-
-executor = ThreadPoolExecutor()
-app = Flask(__name__)
-app.debug = True
-# 把获取到的数据转为JSON格式。
-result = {}
-
-
-
 app.config['JSON_AS_ASCII'] = False
-executor = ThreadPoolExecutor()
 
 
 @app.route("/returnAll", methods=["get", 'post'])  # 发什么返回什么
@@ -300,3 +277,4 @@ def mointor_result():
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8801, debug=False)
     # app.run()
+
