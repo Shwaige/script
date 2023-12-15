@@ -23,7 +23,7 @@ def a():
     params = request.args
     client_id = params.get("client_id")
     response_type = params.get("response_type")
-    redirect_url  = params.get("redirect_url")
+    redirect_url  = params.get("redirect_uri")
     code = "wsj123456"
     state = params.get("state")
     url = str(redirect_url) + "?state=" + str(state) + "&" + str(response_type) + "=" + str(uuid.uuid1()).replace("-","")
