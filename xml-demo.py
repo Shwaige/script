@@ -29,4 +29,4 @@ def get_xml_data():
     return Response(xml_str, content_type='text/xml')
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8899, debug=True)
+    app.run(host="0.0.0.0", port=8805, debug=True)
