@@ -1,7 +1,7 @@
-from datetime import time
 from flask import Flask, request, make_response
 import hashlib
 import xml.etree.ElementTree as ET
+import time  # 导入 time 模块
 
 app = Flask(__name__)
 TOKEN = '9612ab76ba4ec146e57c63c118b02d16'  # 替换为您在微信公众平台设置的 Token
